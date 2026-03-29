@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+*.egg
+*.whl
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env/
+
+# PyInstaller (keep *.spec tracked for reproducible builds)
+build/
+dist/
+
+# Runtime / user data
+data/
+exports/
+*.db
+*.log
+
+# IDE / editors
+.vscode/
+.idea/
+.cursor/
+*.code-workspace
+
+# Internal planning artifacts
+*.resolved
+RULEBOOK.md
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store

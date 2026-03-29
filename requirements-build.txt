@@ -1,0 +1,4 @@
+# Build dependencies for YaqeenScan single-file executable.
+# Install with: pip install -r requirements-build.txt
+-r requirements.txt
+pyinstaller>=6.0.0

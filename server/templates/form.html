@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block title %}Attendance — YaqeenScan{% endblock %}
+{% block content %}
+<section class="card card-form">
+    <div class="card-header">
+        <h1 class="title">Submit attendance</h1>
+        <p class="subtitle">Enter your details</p>
+    </div>
+    <div class="card-body">
+        <form action="{{ url_for('attendance.submit') }}" method="post" class="form" id="attend-form">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+            <input type="hidden" name="token" value="{{ token }}">
+            <input type="hidden" name="session_id" value="{{ session_id }}">
+            <input type="hidden" name="screen_resolution" id="screen_resolution" value="">
+            <input type="hidden" name="timezone" id="timezone" value="">
+            <input type="hidden" name="platform" id="platform" value="">
+            <input type="hidden" name="color_depth" id="color_depth" value="">
+            <input type="hidden" name="pixel_ratio" id="pixel_ratio" value="">
+            <input type="hidden" name="hw_concurrency" id="hw_concurrency" value="">
+            <input type="hidden" name="touch_points" id="touch_points" value="">
+            <input type="hidden" name="canvas_hash" id="canvas_hash" value="">
+            <div class="form-group">
+                <label for="student_id">Student ID</label>
+                <input type="text" id="student_id" name="student_id" required maxlength="20" autocomplete="off" placeholder="Enter your full ID (more than 6 digits)">
+            </div>
+            <div class="form-group">
+                <label for="student_name">Full name</label>
+                <input type="text" id="student_name" name="student_name" required maxlength="100" autocomplete="name" placeholder="Enter your full name (at least first and last name)">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit attendance</button>
+        </form>
+    </div>
+</section>
+<script>
+(function() {
+    function _set(id, val) {
+        var el = document.getElementById(id);
+        if (el) el.value = val;
+    }
+    _set('screen_resolution', (screen.width || '') + 'x' + (screen.height || ''));
+    _set('timezone', (typeof Intl !== 'undefined' && Intl.DateTimeFormat().resolvedOptions().timeZone) || '');
+    _set('platform', navigator.platform || (navigator.userAgentData && navigator.userAgentData.platform) || '');
+    _set('color_depth', screen.colorDepth || '');
+    _set('pixel_ratio', window.devicePixelRatio || '');
+    _set('hw_concurrency', navigator.hardwareConcurrency || '');
+    _set('touch_points', navigator.maxTouchPoints || '0');
+    try {
+        var c = document.createElement('canvas');
+        c.width = 200; c.height = 40;
+        var ctx = c.getContext('2d');
+        ctx.textBaseline = 'alphabetic';
+        ctx.fillStyle = '#f60';
+        ctx.fillRect(0, 0, 200, 40);
+        ctx.fillStyle = '#069';
+        ctx.font = '14px Arial';
+        ctx.fillText('YaqeenScan\u00AB\u2603\u00BB', 2, 28);
+        ctx.fillStyle = 'rgba(102,204,0,0.7)';
+        ctx.font = '12px Georgia';
+        ctx.fillText('YaqeenScan\u00AB\u2603\u00BB', 4, 36);
+        var raw = c.toDataURL();
+        var hash = 0;
+        for (var i = 0; i < raw.length; i++) {
+            hash = ((hash << 5) - hash + raw.charCodeAt(i)) | 0;
+        }
+        _set('canvas_hash', hash.toString(16));
+    } catch(e) {
+        _set('canvas_hash', 'err');
+    }
+})();
+</script>
+{% endblock %}

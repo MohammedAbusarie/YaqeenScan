@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Error — YaqeenScan{% endblock %}
+{% block content %}
+<section class="card card-error">
+    <div class="card-body">
+        <div class="error-icon" aria-hidden="true">!</div>
+        <h1 class="title">Something went wrong</h1>
+        <p class="error-message">{{ message | default('Please try again later.', true) }}</p>
+    </div>
+</section>
+{% endblock %}
