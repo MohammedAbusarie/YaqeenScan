@@ -34,7 +34,41 @@ Universities—especially places like the Egyptian Chinese University (ECU)—of
 
 ## Screenshots
 
-_Screenshots coming soon — this section will showcase the main window, QR display, and student flow._
+### Professor: main app
+
+![Main screen](screenshots/main_screen.png)
+
+### Professor: starting a session
+
+![Starting session](screenshots/starting%20session.png)
+
+### Student: scanning the QR code
+
+![Student scans the projected QR code](screenshots/student_scans_qrcode.jpg)
+
+### Student: scan result (opens the local check-in flow)
+
+![Result after scanning the QR code](screenshots/scanning%20of%20qr%20code%20result.jpg)
+
+### Student: local web form
+
+![Local web form for submitting attendance](screenshots/the%20local%20web%20form%20for%20submitting%20attendnace.jpg)
+
+### Student: attendance recorded
+
+![Attendance recorded confirmation](screenshots/attendnace%20recorded%20message%20page.jpg)
+
+### Professor: live submissions on the desktop app
+
+![Student submissions shown on the professor’s desktop app](screenshots/student%20submitted%20data%20displays%20on%20the%20professor%20screen%20on%20the%20desktop%20app.png)
+
+### After the session: export
+
+![CSV export after ending the session](screenshots/after%20ending%20session%20the%20csv%20of%20student%20list%20gets%20exported.png)
+
+### Exported records
+
+![Resulting CSV attendance records](screenshots/the%20resulting%20csv%20records.png)
 
 ## Quick start
 
